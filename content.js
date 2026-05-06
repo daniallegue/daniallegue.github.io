@@ -1,7 +1,7 @@
 window.siteContent = {
   name: "Daniel De Dios Allegue",
   brandStrong: "Daniel De Dios Allegue",
-  brandLight: "| Personal Page",
+  brandLight: "",
   description: "",
   portrait: {
     src: "assets/portrait.jpg",
@@ -49,7 +49,7 @@ window.siteContent = {
       title: "Learning to Focus: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
       meta: "Publication",
       href: "https://arxiv.org/abs/2511.06946",
-      tag: "NeurIPS",
+      tag: "EWM @ NeurIPS",
       image: {
         src: "assets/learning-to-focus.svg",
         alt: "Diagram for Learning to Focus"

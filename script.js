@@ -151,6 +151,16 @@ const portrait = document.querySelector("#portrait");
 portrait.src = content.portrait.src;
 portrait.alt = content.portrait.alt;
 
+const emailEntry = content.links.find((l) => l.label === "email");
+if (emailEntry) {
+  const p = document.createElement("p");
+  const a = document.createElement("a");
+  a.href = emailEntry.href;
+  a.textContent = emailEntry.href.replace("mailto:", "");
+  p.append(a);
+  document.querySelector("#portrait-address").append(p);
+}
+
 const intro = document.querySelector("#intro");
 content.intro.forEach((line) => intro.append(makeParagraph(line)));
 

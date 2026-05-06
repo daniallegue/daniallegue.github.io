@@ -184,14 +184,16 @@ blockquote p {
 }
 
 .profile .address {
-  margin-bottom: 5px;
-  margin-top: 5px;
-  font-family: monospace;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
 }
 
 .profile .address p {
-  display: inline-block;
-  margin: 0;
+  margin: 0.1rem 0;
+}
+
+.profile .address a {
+  color: var(--global-theme-color);
 }
 
 .clearfix h1 {
@@ -221,7 +223,7 @@ blockquote p {
   gap: 1rem;
   align-items: start;
   margin-bottom: 1.35rem;
-  font-family: "Courier New", Courier, monospace;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
 .publication-media {
