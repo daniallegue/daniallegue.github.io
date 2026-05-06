@@ -6,70 +6,102 @@ const setText = (selector, value) => {
   });
 };
 
-const paragraph = (text) => {
-  const element = document.createElement("p");
-  element.textContent = text;
-  return element;
+const makeParagraph = (text) => {
+  const paragraph = document.createElement("p");
+  paragraph.textContent = text;
+  return paragraph;
 };
 
-const externalLink = (label, href) => {
+const makeLink = ({ label, href, icon }) => {
   const link = document.createElement("a");
   link.href = href;
-  link.textContent = label;
+  link.title = label;
+  link.setAttribute("aria-label", label);
+
   if (href.startsWith("http")) {
     link.target = "_blank";
     link.rel = "noreferrer";
   }
+
+  const iconElement = document.createElement("i");
+  iconElement.className = icon;
+  iconElement.setAttribute("aria-hidden", "true");
+  link.append(iconElement);
+
   return link;
 };
 
-const renderItem = ({ title, href, venue, authors, date, summary }) => {
-  const article = document.createElement("article");
-  article.className = "item";
+const renderNestedFocusList = (areas) => {
+  const list = document.querySelector("#focus-list");
 
-  const heading = document.createElement("h3");
-  heading.append(externalLink(title, href));
+  areas.forEach((area) => {
+    const item = document.createElement("li");
+    const strong = document.createElement("strong");
+    strong.textContent = area.title;
+    item.append(strong);
 
-  const meta = document.createElement("p");
-  meta.className = "meta";
-  meta.textContent = [date, venue, authors].filter(Boolean).join(" / ");
+    const nested = document.createElement("ul");
+    area.items.forEach((entry) => {
+      const nestedItem = document.createElement("li");
+      nestedItem.textContent = entry;
+      nested.append(nestedItem);
+    });
 
-  const description = document.createElement("p");
-  description.className = "summary";
-  description.textContent = summary;
-
-  article.append(heading, meta, description);
-  return article;
+    item.append(nested);
+    list.append(item);
+  });
 };
 
-setText("[data-content='name']", content.name);
-setText("[data-content='tagline']", content.tagline);
+const renderWork = (items) => {
+  const work = document.querySelector("#work");
+
+  items.forEach((item) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "work-item";
+
+    const title = document.createElement("p");
+    title.className = "work-item-title";
+    const link = document.createElement("a");
+    link.href = item.href;
+    link.textContent = item.title;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    title.append(link);
+
+    const meta = document.createElement("p");
+    meta.className = "work-item-meta";
+    meta.textContent = item.meta;
+
+    const summary = makeParagraph(item.summary);
+    wrapper.append(title, meta, summary);
+    work.append(wrapper);
+  });
+};
+
 document.title = content.name;
+setText("[data-content='brandStrong']", content.brandStrong);
+setText("[data-content='brandLight']", ` ${content.brandLight}`);
+setText("[data-content='description']", content.description);
 
 const portrait = document.querySelector("#portrait");
 portrait.src = content.portrait.src;
 portrait.alt = content.portrait.alt;
 
 const intro = document.querySelector("#intro");
-content.intro.forEach((line) => intro.append(paragraph(line)));
+content.intro.forEach((line) => intro.append(makeParagraph(line)));
+
+const vision = document.querySelector("#vision");
+content.vision.forEach((line) => vision.append(makeParagraph(line)));
+
+document.querySelector("#quote").textContent = content.quote;
+
+const focusIntro = document.querySelector("#focus-intro");
+content.focusIntro.forEach((line) => focusIntro.append(makeParagraph(line)));
+renderNestedFocusList(content.focusAreas);
+renderWork(content.work);
 
 const socialLinks = document.querySelector("#social-links");
-content.links.forEach((link) => socialLinks.append(externalLink(link.label, link.href)));
-
-document.querySelector("#publications-note").textContent = content.publicationsNote;
-
-const publications = document.querySelector("#publications-list");
-content.publications.forEach((item) => publications.append(renderItem(item)));
-
-const beyond = document.querySelector("#beyond-list");
-content.beyond.forEach((item) => {
-  const element = document.createElement("li");
-  element.textContent = item;
-  beyond.append(element);
-});
-
-const posts = document.querySelector("#blog-list");
-content.posts.forEach((post) => posts.append(renderItem(post)));
+content.links.forEach((link) => socialLinks.append(makeLink(link)));
 
 document.querySelector("#footer-name").textContent = content.name;
 document.querySelector("#footer-year").textContent = new Date().getFullYear();

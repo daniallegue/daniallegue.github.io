@@ -1,50 +1,67 @@
 window.siteContent = {
-  name: "Your Name",
-  tagline: "Your role / Your field / Your organization",
+  name: "Daniel De Dios Allegue",
+  brandStrong: "Daniel De Dios Allegue",
+  brandLight: "| Personal Page",
+  description: "",
   portrait: {
-    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80",
-    alt: "Portrait of Your Name"
+    src: "https://avatars.githubusercontent.com/u/89365454?v=4",
+    alt: "Portrait of Daniel De Dios Allegue"
   },
   intro: [
-    "Hello world! I am a researcher, builder, and writer working at the intersection of your interests. Use this space to introduce your current role, your main questions, and the work you want people to associate with you.",
-    "Previously, I worked on projects involving topic one, topic two, and topic three. This paragraph is a good place for your academic path, professional history, or the thread that connects your projects.",
-    "If you want to chat, collaborate, or ask about my work, feel free to reach out."
+    "I am a Computer Science and Engineering student at TU Delft, with exchange coursework in Mathematics at KTH Stockholm.",
+    "My interests sit around machine learning, deep learning, computational finance, and software engineering. I like building systems that connect mathematical ideas with practical tools people can actually use.",
+    "This homepage is set up as a simple academic-style profile. Replace these paragraphs with your current role, research interests, projects, and the story you want visitors to understand first."
   ],
-  links: [
-    { label: "Email", href: "mailto:you@example.com" },
-    { label: "GitHub", href: "https://github.com/your-username" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/your-username" },
-    { label: "Google Scholar", href: "https://scholar.google.com/" }
+  vision: [
+    "My work is driven by the idea that useful software should make careful thinking easier. I am especially interested in models, infrastructure, and quantitative methods that are clear enough to inspect and strong enough to deploy.",
+    "Use this section for a research or professional vision: the problems you care about, the principles that guide your work, and the kind of collaborations you are looking for."
   ],
-  publicationsNote: "Add your most relevant work here. Link titles to papers, preprints, talks, or project pages.",
-  publications: [
+  quote:
+    "A good personal page should give people a fast, honest map of what you work on, what you value, and how to reach you.",
+  focusIntro: [
+    "Current themes I am exploring include:"
+  ],
+  focusAreas: [
     {
-      title: "A Selected Paper or Project Title",
-      venue: "Conference, Journal, or Project / 2026",
-      authors: "Your Name, Collaborator One, Collaborator Two",
-      href: "#",
-      summary: "One concise sentence about the contribution, result, or why this work matters."
+      title: "Machine learning and deep learning",
+      items: [
+        "Representation learning, model behavior, and applied neural systems.",
+        "Projects that turn research ideas into understandable software."
+      ]
     },
     {
-      title: "Another Piece of Work You Want to Feature",
-      venue: "Workshop, Thesis, or Report / 2025",
-      authors: "Your Name",
-      href: "#",
-      summary: "Keep these summaries short so the page stays quiet, readable, and easy to scan."
-    }
-  ],
-  beyond: [
-    "A personal interest that gives visitors a sense of your life outside work.",
-    "A hobby, community, sport, music scene, creative practice, or place you love.",
-    "A recurring theme in how you spend your time and what energizes you.",
-    "Something warm and specific that makes the page feel like yours."
-  ],
-  posts: [
+      title: "Computational finance",
+      items: [
+        "Numerical methods, asset pricing, and data-driven approaches to financial problems.",
+        "Tools that make experiments reproducible and easier to reason about."
+      ]
+    },
     {
-      date: "May 6, 2026",
-      title: "A First Blog Post",
-      href: "#",
-      summary: "A short abstract for an essay, technical note, or personal update."
+      title: "Software engineering",
+      items: [
+        "Clean implementation, performance-aware systems, and reliable developer workflows.",
+        "Bridging research prototypes and maintainable production code."
+      ]
     }
+  ],
+  work: [
+    {
+      title: "ANN From Scratch",
+      meta: "Project",
+      href: "https://github.com/daniallegue/ANN-From-Scratch",
+      summary: "A hands-on implementation project for understanding artificial neural networks from first principles."
+    },
+    {
+      title: "Computational Methods in Asset Pricing",
+      meta: "Project",
+      href: "https://github.com/daniallegue/Computational-Methods-In-Asset-Pricing",
+      summary: "Numerical and computational work around asset-pricing methods."
+    }
+  ],
+  links: [
+    { label: "email", href: "mailto:danieldediosallegue@gmail.com", icon: "fas fa-envelope" },
+    { label: "GitHub", href: "https://github.com/daniallegue", icon: "fab fa-github" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/daniel-de-dios-allegue/", icon: "fab fa-linkedin" },
+    { label: "Google Scholar", href: "https://scholar.google.com/", icon: "ai ai-google-scholar" }
   ]
 };
