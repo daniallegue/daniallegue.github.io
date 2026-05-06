@@ -72,8 +72,27 @@ const renderWork = (items) => {
     meta.className = "work-item-meta";
     meta.textContent = item.meta;
 
+    wrapper.append(title, meta);
+
+    if (item.authors) {
+      const authors = document.createElement("p");
+      authors.className = "work-item-authors";
+
+      item.authors.forEach((author, index) => {
+        if (index > 0) {
+          authors.append(document.createTextNode(", "));
+        }
+
+        const authorElement = author.highlight ? document.createElement("strong") : document.createElement("span");
+        authorElement.textContent = author.name;
+        authors.append(authorElement);
+      });
+
+      wrapper.append(authors);
+    }
+
     const summary = makeParagraph(item.summary);
-    wrapper.append(title, meta, summary);
+    wrapper.append(summary);
     work.append(wrapper);
   });
 };

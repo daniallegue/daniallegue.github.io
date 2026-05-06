@@ -229,6 +229,10 @@ blockquote p {
   margin-bottom: 0.25rem;
 }
 
+.work-item-authors {
+  margin-bottom: 0.25rem;
+}
+
 .social {
   text-align: center;
 }

@@ -46,6 +46,17 @@ window.siteContent = {
   ],
   work: [
     {
+      title: "Learning to Focus: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
+      meta: "Publication",
+      href: "https://arxiv.org/abs/2511.06946",
+      authors: [
+        { name: "Daniel De Dios Allegue", highlight: true },
+        { name: "Jinke He" },
+        { name: "Frans A. Oliehoek" }
+      ],
+      summary: "Accepted to the Embodied World Models for Decision Making Workshop at NeurIPS 2025."
+    },
+    {
       title: "ANN From Scratch",
       meta: "Project",
       href: "https://github.com/daniallegue/ANN-From-Scratch",
@@ -61,7 +72,7 @@ window.siteContent = {
   links: [
     { label: "email", href: "mailto:danieldediosallegue@gmail.com", icon: "fas fa-envelope" },
     { label: "GitHub", href: "https://github.com/daniallegue", icon: "fab fa-github" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/daniel-de-dios-allegue/", icon: "fab fa-linkedin" },
-    { label: "Google Scholar", href: "https://scholar.google.com/", icon: "ai ai-google-scholar" }
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/danielallegue", icon: "fab fa-linkedin" },
+    { label: "Google Scholar", href: "https://scholar.google.com/citations?user=Y5EUuXwAAAAJ&hl=es&oi=sra", icon: "ai ai-google-scholar" }
   ]
 };
