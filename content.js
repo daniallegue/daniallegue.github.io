@@ -1,7 +1,7 @@
 window.siteContent = {
   name: "Daniel De Dios Allegue",
   brandStrong: "Daniel De Dios Allegue",
-  brandLight: "A",
+  brandLight: "",
   description: "",
   portrait: {
     src: "assets/portrait.jpg",
@@ -44,9 +44,38 @@ window.siteContent = {
       ]
     }
   ],
+  experience: [
+    {
+      company: "Google",
+      href: "https://example.com",
+      logo: { src: "assets/google-logo.jpg", alt: "Google logo" },
+      role: "Software Engineer Intern",
+      period: "Summer 2025",
+      location: "Stockholm, Sweden",
+      description: "Video AI Mobile Team, Google Meet"
+    },
+    {
+      company: "Lufthansa Group",
+      href: "https://example.com",
+      logo: { src: "assets/lufthansa.jpg", alt: "Lufthansa logo" },
+      role: "Software Engineer Intern",
+      period: "Month Year – Month Year",
+      location: "City, Country",
+      description: "Short description of your responsibilities and what you worked on."
+    },
+    {
+      company: "Team Epoch",
+      href: "https://example.com",
+      logo: { src: "assets/teamepoch_logo.jpg", alt: "Lufthansa logo" },
+      role: "Research Engineer",
+      period: "Month Year – Month Year",
+      location: "City, Country",
+      description: "Short description of your responsibilities and what you worked on."
+    }
+  ],
   work: [
     {
-      title: "Learning to Fo: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
+      title: "Learning to Focus: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
       meta: "Publication",
       href: "https://arxiv.org/abs/2511.06946",
       tag: "EWM @ NeurIPS",

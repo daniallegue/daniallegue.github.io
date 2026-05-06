@@ -217,6 +217,61 @@ blockquote p {
   margin-top: 0.25rem;
 }
 
+.experience-item {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  margin-bottom: 1.5rem;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.experience-logo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.15rem;
+}
+
+.experience-logo img {
+  display: block;
+  width: 100%;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+.experience-details p {
+  margin-bottom: 0.15rem;
+}
+
+.experience-company {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.experience-company a {
+  color: var(--global-text-color);
+  text-decoration: none;
+}
+
+.experience-company a:hover {
+  color: var(--global-theme-color);
+}
+
+.experience-role {
+  font-size: 0.95rem;
+}
+
+.experience-meta {
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+}
+
+.experience-description {
+  font-size: 0.93rem;
+  margin-top: 0.3rem !important;
+}
+
 .publication-item {
   display: grid;
   grid-template-columns: 225px minmax(0, 1fr);
@@ -392,6 +447,11 @@ footer.fixed-bottom a:hover {
 
   .social .contact-icons {
     font-size: 3rem;
+  }
+
+  .experience-item {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 0.75rem;
   }
 
   .publication-item {

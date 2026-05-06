@@ -52,6 +52,61 @@ const renderNestedFocusList = (areas) => {
   });
 };
 
+const renderExperience = (items) => {
+  const list = document.querySelector("#experience-list");
+
+  items.forEach((item) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "experience-item";
+
+    const logoLink = document.createElement("a");
+    logoLink.className = "experience-logo";
+    logoLink.href = item.href;
+    logoLink.target = "_blank";
+    logoLink.rel = "noreferrer";
+    logoLink.setAttribute("aria-label", item.company);
+
+    const logo = document.createElement("img");
+    logo.src = item.logo.src;
+    logo.alt = item.logo.alt;
+    logoLink.append(logo);
+    wrapper.append(logoLink);
+
+    const details = document.createElement("div");
+    details.className = "experience-details";
+
+    const company = document.createElement("p");
+    company.className = "experience-company";
+    const companyLink = document.createElement("a");
+    companyLink.href = item.href;
+    companyLink.target = "_blank";
+    companyLink.rel = "noreferrer";
+    companyLink.textContent = item.company;
+    company.append(companyLink);
+    details.append(company);
+
+    const role = document.createElement("p");
+    role.className = "experience-role";
+    role.textContent = item.role;
+    details.append(role);
+
+    const meta = document.createElement("p");
+    meta.className = "experience-meta";
+    meta.textContent = item.location ? `${item.period} · ${item.location}` : item.period;
+    details.append(meta);
+
+    if (item.description) {
+      const desc = document.createElement("p");
+      desc.className = "experience-description";
+      desc.textContent = item.description;
+      details.append(desc);
+    }
+
+    wrapper.append(details);
+    list.append(wrapper);
+  });
+};
+
 const renderWork = (items) => {
   const work = document.querySelector("#work");
 
@@ -172,6 +227,7 @@ document.querySelector("#quote").textContent = content.quote;
 const focusIntro = document.querySelector("#focus-intro");
 content.focusIntro.forEach((line) => focusIntro.append(makeParagraph(line)));
 renderNestedFocusList(content.focusAreas);
+renderExperience(content.experience);
 renderWork(content.work);
 
 const socialLinks = document.querySelector("#social-links");
