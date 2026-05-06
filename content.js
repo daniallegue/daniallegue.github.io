@@ -46,7 +46,7 @@ window.siteContent = {
   ],
   work: [
     {
-      title: "Learning to Focus: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
+      title: "Learning to: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
       meta: "Publication",
       href: "https://arxiv.org/abs/2511.06946",
       tag: "EWM @ NeurIPS",
