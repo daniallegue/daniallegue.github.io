@@ -245,17 +245,9 @@ blockquote p {
 }
 
 .experience-company {
+  font-family: "Roboto Slab", Roboto, Helvetica, Arial, sans-serif;
   font-size: 1rem;
-  font-weight: 700;
-}
-
-.experience-company a {
-  color: var(--global-text-color);
-  text-decoration: none;
-}
-
-.experience-company a:hover {
-  color: var(--global-theme-color);
+  font-weight: 500;
 }
 
 .experience-role {

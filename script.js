@@ -59,30 +59,21 @@ const renderExperience = (items) => {
     const wrapper = document.createElement("div");
     wrapper.className = "experience-item";
 
-    const logoLink = document.createElement("a");
-    logoLink.className = "experience-logo";
-    logoLink.href = item.href;
-    logoLink.target = "_blank";
-    logoLink.rel = "noreferrer";
-    logoLink.setAttribute("aria-label", item.company);
+    const logoWrapper = document.createElement("div");
+    logoWrapper.className = "experience-logo";
 
     const logo = document.createElement("img");
     logo.src = item.logo.src;
     logo.alt = item.logo.alt;
-    logoLink.append(logo);
-    wrapper.append(logoLink);
+    logoWrapper.append(logo);
+    wrapper.append(logoWrapper);
 
     const details = document.createElement("div");
     details.className = "experience-details";
 
     const company = document.createElement("p");
     company.className = "experience-company";
-    const companyLink = document.createElement("a");
-    companyLink.href = item.href;
-    companyLink.target = "_blank";
-    companyLink.rel = "noreferrer";
-    companyLink.textContent = item.company;
-    company.append(companyLink);
+    company.textContent = item.company;
     details.append(company);
 
     const role = document.createElement("p");

@@ -46,6 +46,15 @@ window.siteContent = {
   ],
   experience: [
     {
+      company: "Centrum Wiskunde & Informatica (CWI)",
+      href: "https://example.com",
+      logo: { src: "assets/cwi.png", alt: "CWI logo" },
+      role: "Research Assistant",
+      period: "Nov 2025 - Present",
+      location: "Amsterdam, Netherlands",
+      description: "Tabular Foundation Models (TFMs)"
+    },
+    {
       company: "Google",
       href: "https://example.com",
       logo: { src: "assets/google-logo.jpg", alt: "Google logo" },
@@ -53,6 +62,15 @@ window.siteContent = {
       period: "Summer 2025",
       location: "Stockholm, Sweden",
       description: "Video AI Mobile Team, Google Meet"
+    },
+    {
+      company: "KTH Royal Institute of Technology",
+      href: "https://example.com",
+      logo: { src: "assets/kth.png", alt: "KTH logo" },
+      role: "Exchange Student in Applied Mathematics",
+      // period: "Month Year – Month Year",
+      // location: "City, Country",
+      // description: "Short description of your responsibilities and what you worked on."
     },
     {
       company: "Lufthansa Group",
@@ -71,6 +89,15 @@ window.siteContent = {
       period: "Month Year – Month Year",
       location: "City, Country",
       description: "Short description of your responsibilities and what you worked on."
+    },
+    {
+      company: "Delft University of Technology",
+      href: "https://example.com",
+      logo: { src: "assets/tudelft.png", alt: "Delft University of Technology logo" },
+      role: "BSc Computer Science + Applied Maths (Cum Laude)",
+      // period: "Month Year – Month Year",
+      // location: "City, Country",
+      // description: "Short description of your responsibilities and what you worked on."
     }
   ],
   work: [
