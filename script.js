@@ -57,42 +57,87 @@ const renderWork = (items) => {
 
   items.forEach((item) => {
     const wrapper = document.createElement("div");
-    wrapper.className = "work-item";
+    wrapper.className = "publication-item";
+
+    if (item.image) {
+      const media = document.createElement("a");
+      media.className = "publication-media";
+      media.href = item.href;
+      media.target = "_blank";
+      media.rel = "noreferrer";
+
+      const image = document.createElement("img");
+      image.src = item.image.src;
+      image.alt = item.image.alt;
+      media.append(image);
+
+      if (item.tag) {
+        const tag = document.createElement("span");
+        tag.className = "publication-tag";
+        tag.textContent = item.tag;
+        media.append(tag);
+      }
+
+      wrapper.append(media);
+    }
+
+    const details = document.createElement("div");
+    details.className = "publication-details";
 
     const title = document.createElement("p");
-    title.className = "work-item-title";
+    title.className = "publication-title";
     const link = document.createElement("a");
     link.href = item.href;
     link.textContent = item.title;
     link.target = "_blank";
     link.rel = "noreferrer";
     title.append(link);
-
-    const meta = document.createElement("p");
-    meta.className = "work-item-meta";
-    meta.textContent = item.meta;
-
-    wrapper.append(title, meta);
+    details.append(title);
 
     if (item.authors) {
       const authors = document.createElement("p");
-      authors.className = "work-item-authors";
+      authors.className = "publication-authors";
 
       item.authors.forEach((author, index) => {
         if (index > 0) {
           authors.append(document.createTextNode(", "));
         }
 
-        const authorElement = author.highlight ? document.createElement("strong") : document.createElement("span");
+        const authorElement = document.createElement("span");
+        if (author.highlight) {
+          authorElement.className = "publication-author-highlight";
+        }
         authorElement.textContent = author.name;
         authors.append(authorElement);
       });
 
-      wrapper.append(authors);
+      details.append(authors);
     }
 
-    const summary = makeParagraph(item.summary);
-    wrapper.append(summary);
+    if (item.venue) {
+      const venue = document.createElement("p");
+      venue.className = "publication-venue";
+      venue.textContent = item.venue;
+      details.append(venue);
+    }
+
+    if (item.links) {
+      const links = document.createElement("div");
+      links.className = "publication-links";
+
+      item.links.forEach((itemLink) => {
+        const action = document.createElement("a");
+        action.href = itemLink.href;
+        action.textContent = itemLink.label;
+        action.target = "_blank";
+        action.rel = "noreferrer";
+        links.append(action);
+      });
+
+      details.append(links);
+    }
+
+    wrapper.append(details);
     work.append(wrapper);
   });
 };

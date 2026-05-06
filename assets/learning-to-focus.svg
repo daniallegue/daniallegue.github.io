@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="200" viewBox="0 0 410 200" role="img" aria-labelledby="title desc">
+  <title id="title">Learning to Focus publication diagram</title>
+  <desc id="desc">A schematic showing sequence context, hidden states, an MCTS planning module, policy bars, and an action arrow.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#111"/>
+    </marker>
+    <pattern id="dashed" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 4H4" stroke="#111" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="410" height="200" fill="#fff"/>
+  <rect x="14" y="14" width="238" height="112" fill="none" stroke="#777" stroke-dasharray="2 2"/>
+  <text x="132" y="141" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#333">Complete Context</text>
+  <g stroke="#111" stroke-width="1.4" fill="none" marker-end="url(#arrow)">
+    <path d="M30 26H98"/>
+    <path d="M116 26H184"/>
+    <path d="M204 26H262"/>
+    <path d="M288 26h84" stroke-dasharray="4 4"/>
+    <path d="M78 32v30"/>
+    <path d="M150 32v30"/>
+    <path d="M232 32v30"/>
+    <path d="M116 55v34"/>
+    <path d="M192 55v34"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111" font-style="italic">
+    <text x="70" y="24">o<tspan baseline-shift="sub" font-size="9">t-2</tspan></text>
+    <text x="142" y="24">o<tspan baseline-shift="sub" font-size="9">t-1</tspan></text>
+    <text x="224" y="24">o<tspan baseline-shift="sub" font-size="9">t</tspan></text>
+    <text x="106" y="53">a<tspan baseline-shift="sub" font-size="9">t-2</tspan></text>
+    <text x="184" y="53">a<tspan baseline-shift="sub" font-size="9">t-1</tspan></text>
+    <text x="340" y="53">a<tspan baseline-shift="sub" font-size="9">t</tspan></text>
+    <text x="245" y="179">π<tspan baseline-shift="sub" font-size="9">t</tspan></text>
+  </g>
+  <g>
+    <polygon points="62,66 96,66 88,98 54,98" fill="#e5f2dc" stroke="#77906f"/>
+    <polygon points="134,66 168,66 160,98 126,98" fill="#e5f2dc" stroke="#77906f"/>
+    <polygon points="216,66 250,66 242,98 208,98" fill="#e5f2dc" stroke="#77906f"/>
+    <text x="74" y="87" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111">h<tspan baseline-shift="sub" font-size="9">θ</tspan></text>
+    <text x="146" y="87" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111">h<tspan baseline-shift="sub" font-size="9">θ</tspan></text>
+    <text x="228" y="87" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#111">h<tspan baseline-shift="sub" font-size="9">θ</tspan></text>
+    <rect x="51" y="99" width="42" height="24" fill="#d9d9d9" stroke="#aaa"/>
+    <rect x="123" y="99" width="42" height="24" fill="#d9d9d9" stroke="#aaa"/>
+    <rect x="205" y="99" width="42" height="24" fill="#d9d9d9" stroke="#aaa"/>
+    <text x="62" y="115" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111">z<tspan baseline-shift="sub" font-size="9">t-2</tspan></text>
+    <text x="134" y="115" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111">z<tspan baseline-shift="sub" font-size="9">t-1</tspan></text>
+    <text x="220" y="115" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#111">z<tspan baseline-shift="sub" font-size="9">t</tspan></text>
+  </g>
+  <rect x="268" y="74" width="76" height="83" fill="#f5f5f5" stroke="#777"/>
+  <rect x="284" y="90" width="44" height="44" fill="#e6e6e6" stroke="#ccc"/>
+  <path d="M307 96l-20 18 20 19 20-19z" fill="#c9c9c9"/>
+  <path d="M306 104l-10 10 10 11 10-11z" fill="#f8f8f8"/>
+  <text x="306" y="114" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#777">MCTS</text>
+  <g>
+    <rect x="274" y="165" width="8" height="27" fill="#6277ff"/>
+    <rect x="286" y="170" width="8" height="22" fill="#5168ff"/>
+    <rect x="298" y="176" width="8" height="16" fill="#7890ff"/>
+    <rect x="310" y="162" width="8" height="30" fill="#425dff"/>
+    <rect x="322" y="172" width="8" height="20" fill="#6f83ff"/>
+  </g>
+  <path d="M360 58v91c0 22-13 32-32 34" stroke="#111" stroke-width="1.7" fill="none" marker-end="url(#arrow)"/>
+</svg>

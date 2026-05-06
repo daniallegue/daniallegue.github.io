@@ -49,24 +49,22 @@ window.siteContent = {
       title: "Learning to Focus: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
       meta: "Publication",
       href: "https://arxiv.org/abs/2511.06946",
+      tag: "NeurIPS",
+      image: {
+        src: "assets/learning-to-focus.svg",
+        alt: "Diagram for Learning to Focus"
+      },
       authors: [
         { name: "Daniel De Dios Allegue", highlight: true },
         { name: "Jinke He" },
         { name: "Frans A. Oliehoek" }
       ],
-      summary: "Embodied World Models for Decision Making Workshop at NeurIPS 2025."
-    },
-    {
-      title: "ANN From Scratch",
-      meta: "Project",
-      href: "https://github.com/daniallegue/ANN-From-Scratch",
-      summary: "A hands-on implementation project for understanding artificial neural networks from first principles."
-    },
-    {
-      title: "Computational Methods in Asset Pricing",
-      meta: "Project",
-      href: "https://github.com/daniallegue/Computational-Methods-In-Asset-Pricing",
-      summary: "Numerical and computational work around asset-pricing methods."
+      venue: "Embodied World Models for Decision Making Workshop at NeurIPS 2025",
+      links: [
+        { label: "ABS", href: "https://arxiv.org/abs/2511.06946" },
+        { label: "ARXIV", href: "https://arxiv.org/abs/2511.06946" },
+        { label: "PDF", href: "https://arxiv.org/pdf/2511.06946" }
+      ]
     }
   ],
   links: [

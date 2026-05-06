@@ -215,22 +215,105 @@ blockquote p {
   margin-top: 0.25rem;
 }
 
-.work-item {
-  margin-bottom: 1rem;
+.publication-item {
+  display: grid;
+  grid-template-columns: 225px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1.35rem;
+  font-family: "Courier New", Courier, monospace;
 }
 
-.work-item-title {
-  font-weight: bolder;
+.publication-media {
+  position: relative;
+  display: block;
+  color: inherit;
 }
 
-.work-item-meta {
-  color: var(--global-text-color-light);
-  font-size: 0.875rem;
+.publication-media:hover {
+  text-decoration: none;
+}
+
+.publication-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 41 / 20;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #cfcfcf;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.publication-tag {
+  position: absolute;
+  top: 8px;
+  left: -14px;
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  background: #1683d8;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.publication-title {
   margin-bottom: 0.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
-.work-item-authors {
+.publication-title a {
+  color: var(--global-text-color);
+}
+
+.publication-title a:hover {
+  color: var(--global-theme-color);
+}
+
+.publication-authors,
+.publication-venue {
   margin-bottom: 0.25rem;
+  line-height: 1.35;
+}
+
+.publication-author-highlight {
+  color: var(--global-text-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.publication-venue {
+  font-style: italic;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.55rem;
+}
+
+.publication-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 32px;
+  padding: 0.25rem 0.85rem;
+  border: 1px solid var(--global-text-color);
+  border-radius: 2px;
+  color: var(--global-text-color);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.publication-links a:hover {
+  color: #fff;
+  background: var(--global-text-color);
+  text-decoration: none;
 }
 
 .social {
@@ -307,5 +390,13 @@ footer.fixed-bottom a:hover {
 
   .social .contact-icons {
     font-size: 3rem;
+  }
+
+  .publication-item {
+    grid-template-columns: 1fr;
+  }
+
+  .publication-media {
+    max-width: 260px;
   }
 }
