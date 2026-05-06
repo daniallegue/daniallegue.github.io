@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A personal academic and professional homepage."
+    />
+    <title>Your Name</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#about" data-content="name">Your Name</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#publications">Publications</a>
+          <a href="#beyond">Beyond Work</a>
+          <a href="#blog">Blog</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero" id="about">
+        <div class="hero-copy">
+          <p class="eyebrow">Personal Homepage</p>
+          <h1 data-content="name">Your Name</h1>
+          <p class="tagline" data-content="tagline">
+            Your role / Your field / Your organization
+          </p>
+        </div>
+        <figure class="portrait-wrap">
+          <img
+            id="portrait"
+            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+            alt="Portrait"
+          />
+        </figure>
+      </section>
+
+      <section class="section intro-section" aria-labelledby="intro-heading">
+        <h2 id="intro-heading">Hello</h2>
+        <div id="intro" class="prose"></div>
+        <div id="social-links" class="social-links" aria-label="Contact links"></div>
+      </section>
+
+      <section class="section" id="publications" aria-labelledby="publications-heading">
+        <div class="section-heading">
+          <h2 id="publications-heading">Selected Publications</h2>
+          <p id="publications-note"></p>
+        </div>
+        <div id="publications-list" class="item-list"></div>
+      </section>
+
+      <section class="section" id="beyond" aria-labelledby="beyond-heading">
+        <div class="section-heading">
+          <h2 id="beyond-heading">Beyond Work</h2>
+          <p>A few signals from the rest of life.</p>
+        </div>
+        <ul id="beyond-list" class="interest-list"></ul>
+      </section>
+
+      <section class="section" id="blog" aria-labelledby="blog-heading">
+        <div class="section-heading">
+          <h2 id="blog-heading">Blog</h2>
+          <p>Notes, essays, and occasional longer thoughts.</p>
+        </div>
+        <div id="blog-list" class="item-list"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="footer-name">Your Name</span>
+      <span aria-hidden="true">/</span>
+      <span id="footer-year"></span>
+    </footer>
+
+    <script src="content.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
