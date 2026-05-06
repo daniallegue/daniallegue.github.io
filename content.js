@@ -4,7 +4,7 @@ window.siteContent = {
   brandLight: "| Personal Page",
   description: "",
   portrait: {
-    src: "https://avatars.githubusercontent.com/u/89365454?v=4",
+    src: "assets/portrait.jpg",
     alt: "Portrait of Daniel De Dios Allegue"
   },
   intro: [
@@ -54,7 +54,7 @@ window.siteContent = {
         { name: "Jinke He" },
         { name: "Frans A. Oliehoek" }
       ],
-      summary: "Accepted to the Embodied World Models for Decision Making Workshop at NeurIPS 2025."
+      summary: "Embodied World Models for Decision Making Workshop at NeurIPS 2025."
     },
     {
       title: "ANN From Scratch",
