@@ -190,30 +190,29 @@ const renderWork = (items) => {
 
 document.title = content.name;
 setText("[data-content='brandStrong']", content.brandStrong);
-setText("[data-content='brandLight']", ` ${content.brandLight}`);
+setText("[data-content='brandLight']", content.brandLight ? ` ${content.brandLight}` : "");
 setText("[data-content='description']", content.description);
 
 const portrait = document.querySelector("#portrait");
 portrait.src = content.portrait.src;
 portrait.alt = content.portrait.alt;
 
-const emailEntry = content.links.find((l) => l.label === "email");
-if (emailEntry) {
+const portraitAddress = document.querySelector("#portrait-address");
+content.links.forEach((link) => {
   const p = document.createElement("p");
   const a = document.createElement("a");
-  a.href = emailEntry.href;
-  a.textContent = emailEntry.href.replace("mailto:", "");
+  a.href = link.href;
+  a.textContent = link.label === "email" ? link.href.replace("mailto:", "") : link.label;
+  if (link.href.startsWith("http")) {
+    a.target = "_blank";
+    a.rel = "noreferrer";
+  }
   p.append(a);
-  document.querySelector("#portrait-address").append(p);
-}
+  portraitAddress.append(p);
+});
 
 const intro = document.querySelector("#intro");
 content.intro.forEach((line) => intro.append(makeParagraph(line)));
-
-const vision = document.querySelector("#vision");
-content.vision.forEach((line) => vision.append(makeParagraph(line)));
-
-document.querySelector("#quote").textContent = content.quote;
 
 const focusIntro = document.querySelector("#focus-intro");
 content.focusIntro.forEach((line) => focusIntro.append(makeParagraph(line)));
@@ -221,8 +220,24 @@ renderNestedFocusList(content.focusAreas);
 renderExperience(content.experience);
 renderWork(content.work);
 
-const socialLinks = document.querySelector("#social-links");
-content.links.forEach((link) => socialLinks.append(makeLink(link)));
 
 document.querySelector("#footer-name").textContent = content.name;
 document.querySelector("#footer-year").textContent = new Date().getFullYear();
+
+const navSectionLabel = document.querySelector("#nav-section-label");
+
+const tabLabels = { home: "", experience: "Experience" };
+
+document.querySelectorAll(".tab-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const tab = link.dataset.tab;
+    document.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("active"));
+    document.querySelector(`#tab-${tab}`).classList.add("active");
+    document.querySelectorAll(".navbar-nav .nav-item").forEach((item) => item.classList.remove("active"));
+    const navItem = link.closest(".nav-item");
+    if (navItem) navItem.classList.add("active");
+    const label = tabLabels[tab] || "";
+    navSectionLabel.textContent = label ? ` · ${label}` : "";
+  });
+});

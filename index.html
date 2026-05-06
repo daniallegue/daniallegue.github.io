@@ -38,9 +38,8 @@
     <header>
       <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
         <div class="container">
-          <a class="navbar-brand title font-weight-lighter" href="/">
-            <span class="font-weight-bold" data-content="brandStrong">Your Name&nbsp;</span>
-            <span data-content="brandLight">| Personal Page</span>
+          <a class="navbar-brand title font-weight-lighter tab-link" href="#" data-tab="home">
+            <span class="font-weight-bold" data-content="brandStrong">Your Name</span><span data-content="brandLight"></span><span id="nav-section-label"></span>
           </a>
 
           <button
@@ -60,17 +59,11 @@
 
           <div class="collapse navbar-collapse text-right" id="navbarNav">
             <ul class="navbar-nav ml-auto flex-nowrap">
-              <li class="nav-item active">
-                <a class="nav-link" href="/"><span class="sr-only">(current)</span></a>
+              <li class="nav-item active" id="nav-home">
+                <a class="nav-link tab-link" href="#" data-tab="home">About<span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#research">Research</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#experience">Experience</a>
+              <li class="nav-item" id="nav-experience">
+                <a class="nav-link tab-link" href="#" data-tab="experience">Experience</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#publications">Publications</a>
@@ -92,42 +85,37 @@
         </header>
 
         <article>
-          <div class="profile float-right">
-            <figure>
-              <picture>
-                <img
-                  id="portrait"
-                  src="https://avatars.githubusercontent.com/u/89365454?v=4"
-                  class="img-fluid z-depth-1 rounded"
-                  alt="Portrait"
-                />
-              </picture>
-            </figure>
-            <div class="address" id="portrait-address"></div>
+          <!-- Home tab -->
+          <div id="tab-home" class="tab-panel active">
+            <div class="profile float-right">
+              <figure>
+                <picture>
+                  <img
+                    id="portrait"
+                    src="https://avatars.githubusercontent.com/u/89365454?v=4"
+                    class="img-fluid z-depth-1 rounded"
+                    alt="Portrait"
+                  />
+                </picture>
+              </figure>
+              <div class="address" id="portrait-address"></div>
+            </div>
+
+            <div class="clearfix">
+              <div id="intro"></div>
+
+              <div id="focus-intro"></div>
+              <ul id="focus-list"></ul>
+
+              <h1 id="publications">Publications</h1>
+              <div id="work"></div>
+            </div>
+
           </div>
 
-          <div class="clearfix">
-            <div id="intro"></div>
-
-            <h1 id="research">Research Vision</h1>
-            <div id="vision"></div>
-
-            <blockquote id="quote-block">
-              <p id="quote"></p>
-            </blockquote>
-
-            <div id="focus-intro"></div>
-            <ul id="focus-list"></ul>
-
-            <h1 id="experience">Experience</h1>
+          <!-- Experience tab -->
+          <div id="tab-experience" class="tab-panel">
             <div id="experience-list"></div>
-
-            <h1 id="publications">Publications</h1>
-            <div id="work"></div>
-          </div>
-
-          <div class="social" id="contact">
-            <div id="social-links" class="contact-icons"></div>
           </div>
         </article>
       </div>

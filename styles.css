@@ -3,8 +3,8 @@
   --global-code-bg-color: rgba(0, 147, 140, 0.05);
   --global-text-color: #000;
   --global-text-color-light: #828282;
-  --global-theme-color: #00938c;
-  --global-hover-color: #00938c;
+  --global-theme-color: #e07736;
+  --global-hover-color: #e07736;
   --global-footer-bg-color: #1c1c1d;
   --global-footer-text-color: #e8e8e8;
   --global-footer-link-color: #fff;
@@ -184,22 +184,30 @@ blockquote p {
 }
 
 .profile .address {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 300;
 }
 
 .profile .address p {
-  margin: 0.1rem 0;
+  margin: 0.2rem 0;
 }
 
 .profile .address a {
   color: var(--global-theme-color);
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.profile .address a:hover {
+  text-decoration: underline;
 }
 
 .clearfix h1 {
-  font-family: "Roboto Slab", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 400;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: lowercase;
   margin-top: 1.65rem;
   margin-bottom: 0.5rem;
 }
@@ -215,6 +223,19 @@ blockquote p {
 
 .clearfix ul ul {
   margin-top: 0.25rem;
+}
+
+#nav-section-label {
+  color: var(--global-text-color-light);
+  font-weight: 300;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
 }
 
 .experience-item {
