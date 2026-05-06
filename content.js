@@ -1,7 +1,7 @@
 window.siteContent = {
   name: "Daniel De Dios Allegue",
   brandStrong: "Daniel De Dios Allegue",
-  brandLight: "",
+  brandLight: "A",
   description: "",
   portrait: {
     src: "assets/portrait.jpg",
@@ -46,7 +46,7 @@ window.siteContent = {
   ],
   work: [
     {
-      title: "Learning to: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
+      title: "Learning to Fo: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
       meta: "Publication",
       href: "https://arxiv.org/abs/2511.06946",
       tag: "EWM @ NeurIPS",
