@@ -109,7 +109,7 @@ window.siteContent = {
         { name: "Jinke He" },
         { name: "Frans A. Oliehoek" }
       ],
-      venue: "Embodied World Models for Decision Making Workshop at NeurIPS 2025",
+      venue: "Embodied World Models for Decision Making Workshop, NeurIPS 2025",
       links: [
         { label: "ABS", href: "https://arxiv.org/abs/2511.06946" },
         { label: "ARXIV", href: "https://arxiv.org/abs/2511.06946" },

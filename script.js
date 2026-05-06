@@ -145,16 +145,11 @@ const renderWork = (items) => {
       authors.className = "publication-authors";
 
       item.authors.forEach((author, index) => {
-        if (index > 0) {
-          authors.append(document.createTextNode(", "));
-        }
-
-        const authorElement = document.createElement("span");
-        if (author.highlight) {
-          authorElement.className = "publication-author-highlight";
-        }
-        authorElement.textContent = author.name;
-        authors.append(authorElement);
+        if (index > 0) authors.append(document.createTextNode(", "));
+        const span = document.createElement("span");
+        if (author.highlight) span.className = "publication-author-highlight";
+        span.textContent = author.name;
+        authors.append(span);
       });
 
       details.append(authors);
@@ -165,22 +160,6 @@ const renderWork = (items) => {
       venue.className = "publication-venue";
       venue.textContent = item.venue;
       details.append(venue);
-    }
-
-    if (item.links) {
-      const links = document.createElement("div");
-      links.className = "publication-links";
-
-      item.links.forEach((itemLink) => {
-        const action = document.createElement("a");
-        action.href = itemLink.href;
-        action.textContent = itemLink.label;
-        action.target = "_blank";
-        action.rel = "noreferrer";
-        links.append(action);
-      });
-
-      details.append(links);
     }
 
     wrapper.append(details);

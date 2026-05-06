@@ -185,8 +185,9 @@ blockquote p {
 
 .profile .address {
   margin-top: 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 300;
+  font-size: 0.85rem;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: normal;
 }
 
 .profile .address p {
@@ -329,14 +330,15 @@ blockquote p {
 }
 
 .publication-title {
-  margin-bottom: 0.25rem;
-  font-size: 1.05rem;
+  margin-bottom: 0.15rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.45;
 }
 
 .publication-title a {
   color: var(--global-text-color);
+  text-decoration: none;
 }
 
 .publication-title a:hover {
@@ -345,45 +347,18 @@ blockquote p {
 
 .publication-authors,
 .publication-venue {
-  margin-bottom: 0.25rem;
-  line-height: 1.35;
+  margin-bottom: 0.1rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .publication-author-highlight {
-  color: var(--global-text-color);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--global-theme-color);
 }
 
 .publication-venue {
-  font-style: italic;
-}
-
-.publication-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 0.55rem;
-}
-
-.publication-links a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 64px;
-  min-height: 32px;
-  padding: 0.25rem 0.85rem;
-  border: 1px solid var(--global-text-color);
-  border-radius: 2px;
-  color: var(--global-text-color);
-  font-size: 0.75rem;
-  line-height: 1;
-}
-
-.publication-links a:hover {
-  color: #fff;
-  background: var(--global-text-color);
-  text-decoration: none;
+  color: var(--global-text-color-light);
+  font-style: normal;
 }
 
 .social {
