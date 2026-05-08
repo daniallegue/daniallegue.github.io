@@ -8,7 +8,7 @@ const setText = (selector, value) => {
 
 const makeParagraph = (text) => {
   const paragraph = document.createElement("p");
-  paragraph.textContent = text;
+  paragraph.innerHTML = text;
   return paragraph;
 };
 
@@ -65,6 +65,7 @@ const renderExperience = (items) => {
     const logo = document.createElement("img");
     logo.src = item.logo.src;
     logo.alt = item.logo.alt;
+    if (item.logo.size) logo.style.width = item.logo.size;
     logoWrapper.append(logo);
     wrapper.append(logoWrapper);
 
@@ -132,19 +133,17 @@ const renderWork = (items) => {
 
     const title = document.createElement("p");
     title.className = "publication-title";
-    const link = document.createElement("a");
-    link.href = item.href;
-    link.textContent = item.title;
-    link.target = "_blank";
-    link.rel = "noreferrer";
-    title.append(link);
+    title.textContent = item.title;
     details.append(title);
 
     if (item.authors) {
       const authors = document.createElement("p");
       authors.className = "publication-authors";
+      const maxVisible = 3;
+      const visible = item.authors.slice(0, maxVisible);
+      const hidden = item.authors.length - maxVisible;
 
-      item.authors.forEach((author, index) => {
+      visible.forEach((author, index) => {
         if (index > 0) authors.append(document.createTextNode(", "));
         const span = document.createElement("span");
         if (author.highlight) span.className = "publication-author-highlight";
@@ -152,14 +151,46 @@ const renderWork = (items) => {
         authors.append(span);
       });
 
+      if (hidden > 0) {
+        authors.append(document.createTextNode(", and "));
+        const more = document.createElement("span");
+        more.className = "publication-more-authors";
+        more.textContent = `${hidden} more author${hidden > 1 ? "s" : ""}`;
+        authors.append(more);
+      }
+
       details.append(authors);
     }
 
-    if (item.venue) {
-      const venue = document.createElement("p");
-      venue.className = "publication-venue";
-      venue.textContent = item.venue;
-      details.append(venue);
+    if (item.venue || item.year) {
+      const venueLine = document.createElement("p");
+      venueLine.className = "publication-venue";
+      if (item.venue) {
+        const em = document.createElement("em");
+        em.textContent = item.venue;
+        venueLine.append(em);
+      }
+      if (item.venue && item.year) {
+        venueLine.append(document.createTextNode(", "));
+      }
+      if (item.year) {
+        venueLine.append(document.createTextNode(item.year));
+      }
+      details.append(venueLine);
+    }
+
+    if (item.links) {
+      const links = document.createElement("div");
+      links.className = "publication-links";
+      item.links.forEach((itemLink) => {
+        const action = document.createElement("a");
+        action.href = itemLink.href;
+        action.textContent = itemLink.label;
+        action.target = "_blank";
+        action.rel = "noreferrer";
+        links.append(action);
+      });
+      details.append(links);
     }
 
     wrapper.append(details);
@@ -196,6 +227,20 @@ content.intro.forEach((line) => intro.append(makeParagraph(line)));
 const focusIntro = document.querySelector("#focus-intro");
 content.focusIntro.forEach((line) => focusIntro.append(makeParagraph(line)));
 renderNestedFocusList(content.focusAreas);
+if (content.cvPdf) {
+  const cvDownload = document.querySelector("#cv-download");
+  const a = document.createElement("a");
+  a.href = content.cvPdf;
+  a.download = "";
+  a.className = "cv-download-btn";
+  a.setAttribute("aria-label", "Download CV as PDF");
+  const icon = document.createElement("i");
+  icon.className = "fas fa-file-pdf";
+  icon.setAttribute("aria-hidden", "true");
+  a.append(icon);
+  cvDownload.append(a);
+}
+
 renderExperience(content.experience);
 renderWork(content.work);
 
@@ -205,18 +250,34 @@ document.querySelector("#footer-year").textContent = new Date().getFullYear();
 
 const navSectionLabel = document.querySelector("#nav-section-label");
 
-const tabLabels = { home: "", experience: "Experience" };
+const tabLabels = { home: "", experience: "CV" };
+const tabTitles = { experience: "Experience" };
+
+const navbar = document.querySelector("#navbar");
+
+const postTitle = document.querySelector(".post-title");
+const postTitleHome = postTitle ? postTitle.innerHTML : "";
+
+const applyTab = (tab) => {
+  document.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("active"));
+  document.querySelector(`#tab-${tab}`).classList.add("active");
+  navbar.classList.toggle("nav-home", tab === "home");
+  const label = tabLabels[tab] || "";
+  navSectionLabel.textContent = label ? ` · ${label}` : "";
+  if (postTitle) {
+    postTitle.innerHTML = tab === "home" ? postTitleHome : (tabTitles[tab] || label);
+  }
+};
+
+applyTab("home");
 
 document.querySelectorAll(".tab-link").forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
     const tab = link.dataset.tab;
-    document.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("active"));
-    document.querySelector(`#tab-${tab}`).classList.add("active");
+    applyTab(tab);
     document.querySelectorAll(".navbar-nav .nav-item").forEach((item) => item.classList.remove("active"));
     const navItem = link.closest(".nav-item");
     if (navItem) navItem.classList.add("active");
-    const label = tabLabels[tab] || "";
-    navSectionLabel.textContent = label ? ` · ${label}` : "";
   });
 });

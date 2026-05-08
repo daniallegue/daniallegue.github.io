@@ -14,8 +14,7 @@
 
 strong,
 .content strong {
-  color: var(--global-theme-color) !important;
-  font-weight: 300;
+  font-weight: 700;
 }
 
 body {
@@ -185,9 +184,9 @@ blockquote p {
 
 .profile .address {
   margin-top: 0.75rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-family: "Courier New", Courier, monospace;
-  font-weight: normal;
+  font-weight: 600;
 }
 
 .profile .address p {
@@ -206,11 +205,11 @@ blockquote p {
 
 .clearfix h1 {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 300;
   text-transform: lowercase;
-  margin-top: 1.65rem;
-  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
 }
 
 .clearfix p {
@@ -226,9 +225,33 @@ blockquote p {
   margin-top: 0.25rem;
 }
 
+.nav-home .navbar-brand [data-content="brandStrong"],
+.nav-home .navbar-brand [data-content="brandLight"] {
+  display: none;
+}
+
 #nav-section-label {
   color: var(--global-text-color-light);
   font-weight: 300;
+}
+
+#cv-download {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+}
+
+.cv-download-btn {
+  display: inline-block;
+  font-size: 2rem;
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.cv-download-btn:hover {
+  color: var(--global-hover-color);
+  opacity: 0.8;
+  text-decoration: none;
 }
 
 .tab-panel {
@@ -237,6 +260,7 @@ blockquote p {
 
 .tab-panel.active {
   display: block;
+  position: relative;
 }
 
 .experience-item {
@@ -330,35 +354,58 @@ blockquote p {
 }
 
 .publication-title {
-  margin-bottom: 0.15rem;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: bolder;
   line-height: 1.45;
 }
 
-.publication-title a {
-  color: var(--global-text-color);
-  text-decoration: none;
-}
-
-.publication-title a:hover {
-  color: var(--global-theme-color);
-}
-
-.publication-authors,
-.publication-venue {
-  margin-bottom: 0.1rem;
+.publication-details .publication-title,
+.publication-details .publication-authors,
+.publication-details .publication-venue {
+  margin-bottom: 0 !important;
   font-size: 0.95rem;
   line-height: 1.4;
 }
 
 .publication-author-highlight {
   color: var(--global-theme-color);
+  border-bottom: 1px dashed var(--global-theme-color);
+}
+
+.publication-more-authors {
+  color: var(--global-theme-color);
+  border-bottom: 1px dashed var(--global-theme-color);
+  cursor: default;
 }
 
 .publication-venue {
-  color: var(--global-text-color-light);
   font-style: normal;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.publication-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--global-text-color);
+  border-radius: 2px;
+  color: var(--global-text-color);
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+.publication-links a:hover {
+  color: #fff;
+  background: var(--global-text-color);
+  text-decoration: none;
 }
 
 .social {

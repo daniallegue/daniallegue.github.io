@@ -3,46 +3,47 @@ window.siteContent = {
   brandStrong: "Daniel",
   brandLight: "De Dios Allegue",
   description: "",
+  cvPdf: "assets/cv.pdf",
   portrait: {
     src: "assets/portrait.jpg",
     alt: "Portrait of Daniel De Dios Allegue"
   },
   intro: [
-    "I am a Computer Science and Engineering student at TU Delft, with exchange coursework in Mathematics at KTH Stockholm.",
-    "My interests sit around machine learning, deep learning, computational finance, and software engineering. I like building systems that connect mathematical ideas with practical tools people can actually use.",
-    "This homepage is set up as a simple academic-style profile. Replace these paragraphs with your current role, research interests, projects, and the story you want visitors to understand first."
+    "Hi, I'm Daniel 🌴! I am currently pursuing a Bridging Programme to Applied Mathematics at Delft University of Technology, and I am a research assistant at the <a href='https://trl-lab.github.io/' target='_blank' rel='noreferrer'>Table Representation Learning Lab</a> at CWI in Amsterdam, where I work on scalable and efficient architectures for Tabular Foundation Models (TFMs) supervised by <a href='https://www.madelonhulsebos.com' target='_blank' rel='noreferrer'>dr. Madelon Hulsebos</a>."
   ],
   focusIntro: [
-    "Current themes I am exploring include:"
+    "Recently, I graduated <em>cum laude</em> with a BSc in Computer Science and Engineering from Delft University of Technology and a minor in Applied Mathematics from KTH Royal Institute of Technology. I worked on model-based reinforcement learning (MBRL), world models and kernel methods for attention mechanisms supervised by <a href='https://fransoliehoek.net/' target='_blank' rel='noreferrer'>prof. Frans Oliehoek</a> and <a href='https://www.jinkehe.me' target='_blank' rel='noreferrer'>dr. Jinke He</a>.",
+    "On the industry side, I have interned at <em>Google</em> on the <em>Video AI Mobile Team</em> for Google Meet where I worked on audio processing and Bluetooth integration, and at <em>Lufthansa Group</em>, where I worked on Natural Language Processing (NLP) to process complex grant documents.",
+    "My current research interests include <strong>foundation models and representation learning for decision making</strong>. I am specially interested in generative modelling for structured data, <em>AI4Science</em> and protein design."
   ],
   focusAreas: [
-    {
-      title: "Machine learning and deep learning",
-      items: [
-        "Representation learning, model behavior, and applied neural systems.",
-        "Projects that turn research ideas into understandable software."
-      ]
-    },
-    {
-      title: "Computational finance",
-      items: [
-        "Numerical methods, asset pricing, and data-driven approaches to financial problems.",
-        "Tools that make experiments reproducible and easier to reason about."
-      ]
-    },
-    {
-      title: "Software engineering",
-      items: [
-        "Clean implementation, performance-aware systems, and reliable developer workflows.",
-        "Bridging research prototypes and maintainable production code."
-      ]
-    }
+    // {
+    //   title: "Machine learning and deep learning",
+    //   items: [
+    //     "Representation learning, model behavior, and applied neural systems.",
+    //     "Projects that turn research ideas into understandable software."
+    //   ]
+    // },
+    // {
+    //   title: "Computational finance",
+    //   items: [
+    //     "Numerical methods, asset pricing, and data-driven approaches to financial problems.",
+    //     "Tools that make experiments reproducible and easier to reason about."
+    //   ]
+    // },
+    // {
+    //   title: "Software engineering",
+    //   items: [
+    //     "Clean implementation, performance-aware systems, and reliable developer workflows.",
+    //     "Bridging research prototypes and maintainable production code."
+    //   ]
+    // }
   ],
   experience: [
     {
       company: "Centrum Wiskunde & Informatica (CWI)",
       href: "https://example.com",
-      logo: { src: "assets/cwi.png", alt: "CWI logo" },
+      logo: { src: "assets/cwi.png", alt: "CWI logo", size: "75%" },
       role: "Research Assistant",
       period: "Nov 2025 - Present",
       location: "Amsterdam, Netherlands",
@@ -60,7 +61,7 @@ window.siteContent = {
     {
       company: "KTH Royal Institute of Technology",
       href: "https://example.com",
-      logo: { src: "assets/kth.jpg", alt: "KTH logo" },
+      logo: { src: "assets/kth.jpg", alt: "KTH logo", size: "80%" },
       role: "Exchange Student in Applied Mathematics",
       // period: "Month Year – Month Year",
       // location: "City, Country",
@@ -69,7 +70,7 @@ window.siteContent = {
     {
       company: "Lufthansa Group",
       href: "https://example.com",
-      logo: { src: "assets/lufthansa.jpg", alt: "Lufthansa logo" },
+      logo: { src: "assets/lufthansa.png", alt: "Lufthansa logo" },
       role: "Software Engineer Intern",
       period: "Month Year – Month Year",
       location: "City, Country",
@@ -109,7 +110,8 @@ window.siteContent = {
         { name: "Jinke He" },
         { name: "Frans A. Oliehoek" }
       ],
-      venue: "Embodied World Models for Decision Making Workshop, NeurIPS 2025",
+      venue: "Embodied World Models Workshop @ NeurIPS",
+      year: "2025",
       links: [
         { label: "ABS", href: "https://arxiv.org/abs/2511.06946" },
         { label: "ARXIV", href: "https://arxiv.org/abs/2511.06946" },
