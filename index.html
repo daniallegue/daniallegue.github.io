@@ -32,6 +32,7 @@
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23e07736'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Roboto,sans-serif' font-weight='700' font-size='13' fill='white'>DD</text></svg>" />
   </head>
 
   <body class="fixed-top-nav">
@@ -60,10 +61,13 @@
           <div class="collapse navbar-collapse text-right" id="navbarNav">
             <ul class="navbar-nav ml-auto flex-nowrap">
               <li class="nav-item active" id="nav-home">
-                <a class="nav-link tab-link" href="#" data-tab="home">About<span class="sr-only">(current)</span></a>
+                <a class="nav-link tab-link" href="#" data-tab="home">about<span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item" id="nav-experience">
-                <a class="nav-link tab-link" href="#" data-tab="experience">CV</a>
+              <li class="nav-item" id="nav-publications">
+                <a class="nav-link tab-link" href="#" data-tab="publications">publications</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="assets/CV.pdf" download>cv</a>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link" href="#publications">Publications</a>
@@ -106,19 +110,21 @@
               <div id="intro"></div>
 
               <div id="focus-intro"></div>
-              <ul id="focus-list"></ul>
+              <div id="focus-areas-section">
+                <div id="focus-areas-intro"></div>
+                <ul id="focus-list"></ul>
+                <div id="focus-areas-outro"></div>
+              </div>
 
-              <h1 id="publications">Selected Publications</h1>
-              <div id="work"></div>
             </div>
 
           </div>
 
-          <!-- Experience tab -->
-          <div id="tab-experience" class="tab-panel">
-            <div id="cv-download"></div>
-            <div id="experience-list"></div>
+          <!-- Publications tab -->
+          <div id="tab-publications" class="tab-panel">
+            <div id="publications-list"></div>
           </div>
+
         </article>
       </div>
     </div>

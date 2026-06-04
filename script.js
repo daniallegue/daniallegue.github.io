@@ -39,15 +39,10 @@ const renderNestedFocusList = (areas) => {
     const strong = document.createElement("strong");
     strong.textContent = area.title;
     item.append(strong);
-
-    const nested = document.createElement("ul");
-    area.items.forEach((entry) => {
-      const nestedItem = document.createElement("li");
-      nestedItem.textContent = entry;
-      nested.append(nestedItem);
-    });
-
-    item.append(nested);
+    item.append(document.createTextNode(": "));
+    const span = document.createElement("span");
+    span.innerHTML = area.items.join(", ");
+    item.append(span);
     list.append(item);
   });
 };
@@ -96,6 +91,123 @@ const renderExperience = (items) => {
 
     wrapper.append(details);
     list.append(wrapper);
+  });
+};
+
+const renderPublications = (items) => {
+  const container = document.querySelector("#publications-list");
+
+  const byYear = {};
+  items.forEach((item) => {
+    const y = item.year || "Other";
+    if (!byYear[y]) byYear[y] = [];
+    byYear[y].push(item);
+  });
+
+  Object.keys(byYear).sort((a, b) => b - a).forEach((year) => {
+    const heading = document.createElement("h2");
+    heading.className = "pub-year-heading";
+    heading.textContent = year;
+    container.append(heading);
+
+    const ol = document.createElement("ol");
+    ol.className = "pub-year-list";
+
+    byYear[year].forEach((item) => {
+      const li = document.createElement("li");
+      li.className = "pub-list-item";
+
+      if (item.image) {
+        const media = document.createElement("div");
+        media.className = "publication-media pub-list-media";
+        const img = document.createElement("img");
+        img.src = item.image.src;
+        img.alt = item.image.alt;
+        media.append(img);
+        li.append(media);
+      }
+
+      const details = document.createElement("div");
+
+      const title = document.createElement("div");
+      title.className = "publication-title";
+      title.textContent = item.title;
+      details.append(title);
+
+      if (item.authors) {
+        const authors = document.createElement("div");
+        authors.className = "publication-authors";
+        const maxVisible = 3;
+        const visible = item.authors.slice(0, maxVisible);
+        const hidden = item.authors.length - maxVisible;
+        visible.forEach((author, index) => {
+          if (index > 0) authors.append(document.createTextNode(", "));
+          const span = document.createElement("span");
+          if (author.highlight) span.className = "publication-author-highlight";
+          span.textContent = author.name;
+          authors.append(span);
+        });
+        if (hidden > 0) {
+          authors.append(document.createTextNode(", and "));
+          const more = document.createElement("span");
+          more.className = "publication-more-authors";
+          more.textContent = `${hidden} more author${hidden > 1 ? "s" : ""}`;
+          authors.append(more);
+        }
+        details.append(authors);
+      }
+
+      if (item.venue || item.year) {
+        const venueLine = document.createElement("div");
+        venueLine.className = "publication-venue";
+        if (item.venue) {
+          const em = document.createElement("em");
+          em.textContent = item.venue;
+          venueLine.append(em);
+        }
+        if (item.venue && item.year) venueLine.append(document.createTextNode(", "));
+        if (item.year) venueLine.append(document.createTextNode(item.year));
+        details.append(venueLine);
+      }
+
+      const linksRow = document.createElement("div");
+      linksRow.className = "publication-links";
+
+      if (item.abstract) {
+        const absBtn = document.createElement("button");
+        absBtn.className = "pub-link-btn";
+        absBtn.textContent = "Abs";
+        const abstractDiv = document.createElement("div");
+        abstractDiv.className = "publication-abstract";
+        abstractDiv.textContent = item.abstract;
+        absBtn.addEventListener("click", () => {
+          const hidden = abstractDiv.style.display === "none" || !abstractDiv.style.display;
+          abstractDiv.style.display = hidden ? "block" : "none";
+        });
+        linksRow.append(absBtn);
+        details.append(linksRow);
+        details.append(abstractDiv);
+      } else {
+        details.append(linksRow);
+      }
+
+      if (item.links) {
+        item.links.filter((l) => l.label !== "ABS").forEach((itemLink) => {
+          const a = document.createElement("a");
+          a.href = itemLink.href;
+          a.textContent = itemLink.label;
+          a.target = "_blank";
+          a.rel = "noreferrer";
+          a.className = "pub-link-btn";
+          linksRow.append(a);
+        });
+      }
+
+      li.append(details);
+      ol.append(li);
+    });
+
+    container.append(ol);
   });
 };
 
@@ -226,23 +338,14 @@ content.intro.forEach((line) => intro.append(makeParagraph(line)));
 
 const focusIntro = document.querySelector("#focus-intro");
 content.focusIntro.forEach((line) => focusIntro.append(makeParagraph(line)));
-renderNestedFocusList(content.focusAreas);
-if (content.cvPdf) {
-  const cvDownload = document.querySelector("#cv-download");
-  const a = document.createElement("a");
-  a.href = content.cvPdf;
-  a.download = "";
-  a.className = "cv-download-btn";
-  a.setAttribute("aria-label", "Download CV as PDF");
-  const icon = document.createElement("i");
-  icon.className = "fas fa-file-pdf";
-  icon.setAttribute("aria-hidden", "true");
-  a.append(icon);
-  cvDownload.append(a);
+if (content.focusAreasIntro) {
+  document.querySelector("#focus-areas-intro").append(makeParagraph(content.focusAreasIntro));
 }
-
-renderExperience(content.experience);
-renderWork(content.work);
+if (content.focusAreas) renderNestedFocusList(content.focusAreas);
+if (content.focusAreasOutro) {
+  document.querySelector("#focus-areas-outro").append(makeParagraph(content.focusAreasOutro));
+}
+renderPublications(content.work);
 
 
 document.querySelector("#footer-name").textContent = content.name;
@@ -250,8 +353,8 @@ document.querySelector("#footer-year").textContent = new Date().getFullYear();
 
 const navSectionLabel = document.querySelector("#nav-section-label");
 
-const tabLabels = { home: "", experience: "CV" };
-const tabTitles = { experience: "Experience" };
+const tabLabels = { home: "", publications: "Publications" };
+const tabTitles = { publications: "Publications" };
 
 const navbar = document.querySelector("#navbar");
 

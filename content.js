@@ -9,36 +9,30 @@ window.siteContent = {
     alt: "Portrait of Daniel De Dios Allegue"
   },
   intro: [
-    "Hi, I'm Daniel 🌴! I am currently pursuing a Bridging Programme to Applied Mathematics at Delft University of Technology, and I am a research assistant at the <a href='https://trl-lab.github.io/' target='_blank' rel='noreferrer'>Table Representation Learning Lab</a> at CWI in Amsterdam, where I work on scalable and efficient architectures for Tabular Foundation Models (TFMs) supervised by <a href='https://www.madelonhulsebos.com' target='_blank' rel='noreferrer'>dr. Madelon Hulsebos</a>."
+    "Hi, I'm Daniel 🌴! I am an incoming MPhil Advanced Computer Science at the University of Cambridge (Fitzwilliam College), where I will focus on generative modelling and AI4Science. "
   ],
   focusIntro: [
-    "Recently, I graduated <em>cum laude</em> with a BSc in Computer Science and Engineering from Delft University of Technology and a minor in Applied Mathematics from KTH Royal Institute of Technology. I worked on model-based reinforcement learning (MBRL), world models and kernel methods for attention mechanisms supervised by <a href='https://fransoliehoek.net/' target='_blank' rel='noreferrer'>prof. Frans Oliehoek</a> and <a href='https://www.jinkehe.me' target='_blank' rel='noreferrer'>dr. Jinke He</a>.",
-    "On the industry side, I have interned at <em>Google</em> on the <em>Video AI Mobile Team</em> for Google Meet where I worked on audio processing and Bluetooth integration, and at <em>Lufthansa Group</em>, where I worked on Natural Language Processing (NLP) to process complex grant documents.",
-    "My current research interests include <strong>foundation models and representation learning for decision making</strong>. I am specially interested in generative modelling for structured data, <em>AI4Science</em> and protein design."
+    "I am currently a research assistant at the <a href='https://trl-lab.github.io/' target='_blank' rel='noreferrer'>Table Representation Learning Lab</a> at CWI in Amsterdam, where I work on scalable and efficient architectures for Tabular Foundation Models (TFMs) supervised by <a href='https://www.madelonhulsebos.com' target='_blank' rel='noreferrer'>Dr. Madelon Hulsebos</a>.",
+    "Previosly, I graduated <em>cum laude</em> with a BSc in Computer Science and a bridging programme to Applied Mathematics from Delft University of Technology. I worked on model-based reinforcement learning (MBRL), world models and kernel methods for attention mechanisms supervised by <a href='https://fransoliehoek.net/' target='_blank' rel='noreferrer'>Prof. Frans Oliehoek</a> and <a href='https://www.jinkehe.me' target='_blank' rel='noreferrer'>Dr. Jinke He</a>.",
+    "On the industry side, I have interned at Google <img src='assets/google-logo.jpg' alt='Google' style='height:1.1em;vertical-align:middle;margin:0 2px;border-radius:2px;'>on the <em>Video AI Mobile Team</em> for Google Meet where I worked on audio processing and Bluetooth integration, and at Lufthansa Group <img src='assets/lufthansa.png' alt='Lufthansa Group' style='height:1.1em;vertical-align:middle;margin:0 2px;border-radius:2px;'>, where I worked on Natural Language Processing (NLP) to process complex grant documents.",
+    "My current research interests include <strong>foundation models and representation learning for decision making</strong>. I am specially interested in generative modelling for structured data, <em>AI4Science</em> and protein design 🧬."
   ],
-  focusAreas: [
-    // {
-    //   title: "Machine learning and deep learning",
-    //   items: [
-    //     "Representation learning, model behavior, and applied neural systems.",
-    //     "Projects that turn research ideas into understandable software."
-    //   ]
-    // },
-    // {
-    //   title: "Computational finance",
-    //   items: [
-    //     "Numerical methods, asset pricing, and data-driven approaches to financial problems.",
-    //     "Tools that make experiments reproducible and easier to reason about."
-    //   ]
-    // },
-    // {
-    //   title: "Software engineering",
-    //   items: [
-    //     "Clean implementation, performance-aware systems, and reliable developer workflows.",
-    //     "Bridging research prototypes and maintainable production code."
-    //   ]
-    // }
-  ],
+  // focusAreasIntro: "Some of my research interests and contributions:",
+  // focusAreasOutro: "I am also broadly interested in <em>AI4Science</em>, protein design, and generative models for structured data.",
+  // focusAreas: [
+  //   {
+  //     title: "Tabular Foundation Models",
+  //     items: ["scalable and efficient architectures for TFMs", "representation learning for structured data"]
+  //   },
+  //   {
+  //     title: "Reinforcement learning",
+  //     items: ["model-based RL (MBRL)", "world models", "<a href='https://arxiv.org/abs/2511.06946' target='_blank' rel='noreferrer'>structured attention mechanisms for PORL</a>"]
+  //   },
+  //   {
+  //     title: "Generative modelling",
+  //     items: ["generative models for structured and tabular data", "diffusion and flow-based models"]
+  //   }
+  // ],
   experience: [
     {
       company: "Centrum Wiskunde & Informatica (CWI)",
@@ -112,6 +106,7 @@ window.siteContent = {
       ],
       venue: "Embodied World Models Workshop @ NeurIPS",
       year: "2025",
+      abstract: "In partially observable environments, an agent must rely on its history of observations to infer the true state of the world. However, not all parts of the history are equally informative. We propose a structured attention mechanism that learns to prioritize informative observations in the history, enabling more efficient use of context in memory-based reinforcement learning agents. Our approach improves sample efficiency and performance across a range of partially observable benchmarks.",
       links: [
         { label: "ABS", href: "https://arxiv.org/abs/2511.06946" },
         { label: "ARXIV", href: "https://arxiv.org/abs/2511.06946" },
