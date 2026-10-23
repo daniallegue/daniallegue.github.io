@@ -47,8 +47,8 @@ const renderNestedFocusList = (areas) => {
   });
 };
 
-const renderExperience = (items) => {
-  const list = document.querySelector("#experience-list");
+const renderExperience = (items, containerSelector = "#experience-list") => {
+  const list = document.querySelector(containerSelector);
 
   items.forEach((item) => {
     const wrapper = document.createElement("div");
@@ -77,10 +77,12 @@ const renderExperience = (items) => {
     role.textContent = item.role;
     details.append(role);
 
-    const meta = document.createElement("p");
-    meta.className = "experience-meta";
-    meta.textContent = item.location ? `${item.period} · ${item.location}` : item.period;
-    details.append(meta);
+    if (item.period || item.location) {
+      const meta = document.createElement("p");
+      meta.className = "experience-meta";
+      meta.textContent = item.period && item.location ? `${item.period} · ${item.location}` : (item.period || item.location);
+      details.append(meta);
+    }
 
     if (item.description) {
       const desc = document.createElement("p");
@@ -94,6 +96,29 @@ const renderExperience = (items) => {
   });
 };
 
+const renderAwards = (items) => {
+  const container = document.querySelector("#awards-list");
+
+  items.forEach((item) => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "award";
+
+    const title = document.createElement("h3");
+    title.className = "award-title";
+    title.textContent = item.title;
+    wrapper.append(title);
+
+    if (item.description) {
+      const description = document.createElement("p");
+      description.className = "award-description";
+      description.textContent = item.description;
+      wrapper.append(description);
+    }
+
+    container.append(wrapper);
+  });
+};
+
 const renderPublications = (items) => {
   const container = document.querySelector("#publications-list");
 
@@ -104,7 +129,8 @@ const renderPublications = (items) => {
     byYear[y].push(item);
   });
 
-  Object.keys(byYear).sort((a, b) => b - a).forEach((year) => {
+  const yearRank = (year) => (/^\d+$/.test(year) ? Number(year) : Infinity);
+  Object.keys(byYear).sort((a, b) => yearRank(b) - yearRank(a)).forEach((year) => {
     const heading = document.createElement("h2");
     heading.className = "pub-year-heading";
     heading.textContent = year;
@@ -137,14 +163,14 @@ const renderPublications = (items) => {
       if (item.authors) {
         const authors = document.createElement("div");
         authors.className = "publication-authors";
-        const maxVisible = 3;
+        const maxVisible = 6;
         const visible = item.authors.slice(0, maxVisible);
         const hidden = item.authors.length - maxVisible;
         visible.forEach((author, index) => {
           if (index > 0) authors.append(document.createTextNode(", "));
           const span = document.createElement("span");
           if (author.highlight) span.className = "publication-author-highlight";
-          span.textContent = author.name;
+          span.textContent = author.name + (author.marker || "");
           authors.append(span);
         });
         if (hidden > 0) {
@@ -167,6 +193,7 @@ const renderPublications = (items) => {
         }
         if (item.venue && item.year) venueLine.append(document.createTextNode(", "));
         if (item.year) venueLine.append(document.createTextNode(item.year));
+        if (item.note) venueLine.append(document.createTextNode(` (${item.note})`));
         details.append(venueLine);
       }
 
@@ -333,6 +360,17 @@ content.links.forEach((link) => {
   portraitAddress.append(p);
 });
 
+if (content.contactEmails) {
+  const contactEmails = document.querySelector("#contact-emails");
+  content.contactEmails.forEach((email) => {
+    const obscuredEmail = email.replace("@", " [AT] ").replace(/\./g, " [DOT] ");
+    const p = document.createElement("p");
+    p.className = "contact-address";
+    p.textContent = obscuredEmail;
+    contactEmails.append(p);
+  });
+}
+
 const intro = document.querySelector("#intro");
 content.intro.forEach((line) => intro.append(makeParagraph(line)));
 
@@ -345,42 +383,34 @@ if (content.focusAreas) renderNestedFocusList(content.focusAreas);
 if (content.focusAreasOutro) {
   document.querySelector("#focus-areas-outro").append(makeParagraph(content.focusAreasOutro));
 }
+if (content.education) renderExperience(content.education, "#education-list");
+if (content.experience) renderExperience(content.experience);
 renderPublications(content.work);
+// Awards section hidden for now; re-enable once ready:
+// if (content.awards) renderAwards(content.awards);
 
 
 document.querySelector("#footer-name").textContent = content.name;
 document.querySelector("#footer-year").textContent = new Date().getFullYear();
 
-const navSectionLabel = document.querySelector("#nav-section-label");
+const sections = Array.from(document.querySelectorAll(".page-section"));
+const navItems = Array.from(document.querySelectorAll(".navbar-nav .nav-item"));
 
-const tabLabels = { home: "", publications: "Publications" };
-const tabTitles = { publications: "Publications" };
-
-const navbar = document.querySelector("#navbar");
-
-const postTitle = document.querySelector(".post-title");
-const postTitleHome = postTitle ? postTitle.innerHTML : "";
-
-const applyTab = (tab) => {
-  document.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("active"));
-  document.querySelector(`#tab-${tab}`).classList.add("active");
-  navbar.classList.toggle("nav-home", tab === "home");
-  const label = tabLabels[tab] || "";
-  navSectionLabel.textContent = label ? ` · ${label}` : "";
-  if (postTitle) {
-    postTitle.innerHTML = tab === "home" ? postTitleHome : (tabTitles[tab] || label);
-  }
+const setActiveSection = (id) => {
+  navItems.forEach((item) => item.classList.remove("active"));
+  const activeLink = document.querySelector(`.section-link[href="#${id}"]`);
+  const navItem = activeLink && activeLink.closest(".nav-item");
+  if (navItem) navItem.classList.add("active");
 };
 
-applyTab("home");
-
-document.querySelectorAll(".tab-link").forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const tab = link.dataset.tab;
-    applyTab(tab);
-    document.querySelectorAll(".navbar-nav .nav-item").forEach((item) => item.classList.remove("active"));
-    const navItem = link.closest(".nav-item");
-    if (navItem) navItem.classList.add("active");
-  });
-});
+if ("IntersectionObserver" in window && sections.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
+      });
+    },
+    { rootMargin: "-40% 0px -55% 0px" }
+  );
+  sections.forEach((section) => observer.observe(section));
+}

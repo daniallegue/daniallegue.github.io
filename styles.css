@@ -1,15 +1,20 @@
 :root {
-  --global-bg-color: #fff;
-  --global-code-bg-color: rgba(0, 147, 140, 0.05);
-  --global-text-color: #000;
-  --global-text-color-light: #828282;
-  --global-theme-color: #e07736;
-  --global-hover-color: #e07736;
-  --global-footer-bg-color: #1c1c1d;
+  --global-bg-color: #fcfbf8;
+  --global-code-bg-color: rgba(29, 78, 137, 0.05);
+  --global-text-color: #1c1c1e;
+  --global-text-color-light: #5f5f66;
+  --global-text-color-faint: #8a8a91;
+  --global-theme-color: #1d4e89;
+  --global-hover-color: #0f3566;
+  --global-footer-bg-color: #1c1c1e;
   --global-footer-text-color: #e8e8e8;
   --global-footer-link-color: #fff;
-  --global-divider-color: rgba(0, 0, 0, 0.1);
+  --global-divider-color: #e6e2d9;
   --global-card-bg-color: #fff;
+
+  --global-serif-font: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --global-sans-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --global-mono-font: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
 strong,
@@ -21,7 +26,7 @@ body {
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--global-serif-font);
   line-height: 1.5;
 }
 
@@ -96,10 +101,16 @@ blockquote p {
 
 .navbar.navbar-light .navbar-brand {
   color: var(--global-text-color);
+  font-family: var(--global-serif-font);
+  font-weight: 600;
 }
 
 .navbar.navbar-light .navbar-nav .nav-item .nav-link {
   color: var(--global-text-color);
+  font-family: var(--global-sans-font);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
@@ -159,14 +170,16 @@ blockquote p {
 }
 
 .post-title {
-  font-family: "Roboto Slab", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--global-serif-font);
   font-size: 2.25rem;
-  font-weight: 300;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
 }
 
 .desc {
   color: var(--global-text-color-light);
+  font-family: var(--global-sans-font);
   margin-bottom: 0;
 }
 
@@ -185,7 +198,7 @@ blockquote p {
 .profile .address {
   margin-top: 0.75rem;
   font-size: 1rem;
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--global-mono-font);
   font-weight: 600;
 }
 
@@ -203,14 +216,85 @@ blockquote p {
   text-decoration: underline;
 }
 
+.contact-block {
+  margin-top: 0.9rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--global-divider-color);
+}
+
+.contact-label {
+  font-family: var(--global-sans-font);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--global-text-color-faint);
+  margin-bottom: 0.2rem;
+}
+
+.contact-address {
+  font-family: var(--global-mono-font);
+  font-size: 0.8rem;
+  color: var(--global-text-color-light);
+  margin: 0;
+}
+
+.cv-download-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-family: var(--global-sans-font);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.cv-download-link:hover {
+  color: var(--global-hover-color);
+  text-decoration: underline;
+}
+
 #focus-areas-section {
   clear: both;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.page-section {
+  display: block;
+  clear: both;
+  padding-top: 1rem;
+  scroll-margin-top: 80px;
+}
+
+.page-section + .page-section {
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--global-divider-color);
+  padding-top: 2.5rem;
+}
+
+.section-heading {
+  font-family: var(--global-serif-font);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  text-transform: lowercase;
+  border-bottom: 1px solid var(--global-divider-color);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+#experience-list {
+  clear: both;
+}
+
 .clearfix h1 {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--global-serif-font);
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 600;
   text-transform: lowercase;
   margin-top: 3rem;
   margin-bottom: 1.25rem;
@@ -229,24 +313,18 @@ blockquote p {
   margin-top: 0.25rem;
 }
 
-.nav-home .navbar-brand [data-content="brandStrong"],
-.nav-home .navbar-brand [data-content="brandLight"] {
-  display: none;
-}
-
-#nav-section-label {
-  color: var(--global-text-color-light);
-  font-weight: 300;
-}
-
 .pub-year-heading {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--global-serif-font);
   font-size: 1.4rem;
-  font-weight: 300;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.pub-year-list + .pub-year-heading {
   border-top: 1px solid var(--global-divider-color);
   padding-top: 1rem;
   margin-top: 2rem;
-  margin-bottom: 0.75rem;
 }
 
 .pub-year-list {
@@ -256,7 +334,7 @@ blockquote p {
 
 .pub-year-list li {
   margin-bottom: 1.25rem;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--global-serif-font);
 }
 
 .pub-list-item {
@@ -290,7 +368,11 @@ blockquote p {
   border-radius: 2px;
   background: none;
   color: var(--global-text-color);
-  font-size: 0.75rem;
+  font-family: var(--global-sans-font);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
 }
@@ -312,41 +394,13 @@ blockquote p {
   line-height: 1.5;
 }
 
-#cv-download {
-  position: absolute;
-  top: -2.5rem;
-  right: 0;
-}
-
-.cv-download-btn {
-  display: inline-block;
-  font-size: 2rem;
-  color: var(--global-theme-color);
-  text-decoration: none;
-}
-
-.cv-download-btn:hover {
-  color: var(--global-hover-color);
-  opacity: 0.8;
-  text-decoration: none;
-}
-
-.tab-panel {
-  display: none;
-}
-
-.tab-panel.active {
-  display: block;
-  position: relative;
-}
-
 .experience-item {
   display: grid;
   grid-template-columns: 110px minmax(0, 1fr);
   gap: 1.25rem;
   align-items: start;
   margin-bottom: 1.5rem;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--global-serif-font);
 }
 
 .experience-logo {
@@ -368,9 +422,9 @@ blockquote p {
 }
 
 .experience-company {
-  font-family: "Roboto Slab", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--global-serif-font);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .experience-role {
@@ -378,8 +432,9 @@ blockquote p {
 }
 
 .experience-meta {
-  font-size: 0.85rem;
-  color: var(--global-text-color-light);
+  font-family: var(--global-sans-font);
+  font-size: 0.8rem;
+  color: var(--global-text-color-faint);
 }
 
 .experience-description {
@@ -393,7 +448,7 @@ blockquote p {
   gap: 1rem;
   align-items: start;
   margin-bottom: 1.35rem;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--global-serif-font);
 }
 
 .publication-media {
@@ -475,7 +530,11 @@ blockquote p {
   border: 1px solid var(--global-text-color);
   border-radius: 2px;
   color: var(--global-text-color);
-  font-size: 0.75rem;
+  font-family: var(--global-sans-font);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-decoration: none;
 }
 
@@ -507,8 +566,24 @@ blockquote p {
   color: var(--global-theme-color);
 }
 
+.award-title {
+  font-family: var(--global-serif-font);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.award-description {
+  color: var(--global-text-color-light);
+}
+
+.award + .award {
+  margin-top: 1.5rem;
+}
+
 footer.fixed-bottom {
   background-color: var(--global-footer-bg-color);
+  font-family: var(--global-sans-font);
   font-size: 0.75rem;
 }
 

@@ -27,20 +27,22 @@
       href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons"
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=Inter:wght@400;500;600&display=swap"
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23e07736'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Roboto,sans-serif' font-weight='700' font-size='13' fill='white'>DD</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231d4e89'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='13' fill='white'>DD</text></svg>" />
   </head>
 
   <body class="fixed-top-nav">
     <header>
       <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
         <div class="container">
-          <a class="navbar-brand title font-weight-lighter tab-link" href="#" data-tab="home">
-            <span class="font-weight-bold" data-content="brandStrong">Your Name</span><span data-content="brandLight"></span><span id="nav-section-label"></span>
+          <a class="navbar-brand title font-weight-lighter" href="#about">
+            <span class="font-weight-bold" data-content="brandStrong">Your Name</span><span data-content="brandLight"></span>
           </a>
 
           <button
@@ -60,18 +62,23 @@
 
           <div class="collapse navbar-collapse text-right" id="navbarNav">
             <ul class="navbar-nav ml-auto flex-nowrap">
-              <li class="nav-item active" id="nav-home">
-                <a class="nav-link tab-link" href="#" data-tab="home">about<span class="sr-only">(current)</span></a>
+              <li class="nav-item" id="nav-about">
+                <a class="nav-link section-link" href="#about">about</a>
               </li>
               <li class="nav-item" id="nav-publications">
-                <a class="nav-link tab-link" href="#" data-tab="publications">publications</a>
+                <a class="nav-link section-link" href="#publications">publications</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="assets/CV.pdf" download>cv</a>
+              <li class="nav-item" id="nav-education">
+                <a class="nav-link section-link" href="#education">education</a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#publications">Publications</a>
-              </li> -->
+              <li class="nav-item" id="nav-experience">
+                <a class="nav-link section-link" href="#experience">experience</a>
+              </li>
+              <!-- Awards hidden for now
+              <li class="nav-item" id="nav-awards">
+                <a class="nav-link section-link" href="#awards">awards</a>
+              </li>
+              -->
             </ul>
           </div>
         </div>
@@ -81,17 +88,8 @@
     <div class="container mt-5">
       <div class="post">
 
-        <header class="post-header">
-          <h1 class="post-title">
-            <span class="font-weight-bold" data-content="brandStrong">Your Name</span>
-            <span data-content="brandLight"> | Personal Page</span>
-          </h1>
-          <p class="desc" data-content="description"></p>
-        </header>
-
         <article>
-          <!-- Home tab -->
-          <div id="tab-home" class="tab-panel active">
+          <section id="about" class="page-section">
             <div class="profile float-right">
               <figure>
                 <picture>
@@ -104,6 +102,11 @@
                 </picture>
               </figure>
               <div class="address" id="portrait-address"></div>
+              <div class="contact-block">
+                <p class="contact-label">Contact me</p>
+                <div id="contact-emails"></div>
+              </div>
+              <a id="cv-download-link" class="cv-download-link" href="assets/CV.pdf" download>Download CV</a>
             </div>
 
             <div class="clearfix">
@@ -115,16 +118,30 @@
                 <ul id="focus-list"></ul>
                 <div id="focus-areas-outro"></div>
               </div>
-
             </div>
+          </section>
 
-          </div>
-
-          <!-- Publications tab -->
-          <div id="tab-publications" class="tab-panel">
+          <section id="publications" class="page-section">
+            <h2 class="section-heading">publications</h2>
             <div id="publications-list"></div>
-          </div>
+          </section>
 
+          <section id="education" class="page-section">
+            <h2 class="section-heading">education</h2>
+            <div id="education-list"></div>
+          </section>
+
+          <section id="experience" class="page-section">
+            <h2 class="section-heading">experience</h2>
+            <div id="experience-list"></div>
+          </section>
+
+          <!-- Awards hidden for now
+          <section id="awards" class="page-section">
+            <h2 class="section-heading">awards</h2>
+            <div id="awards-list"></div>
+          </section>
+          -->
         </article>
       </div>
     </div>

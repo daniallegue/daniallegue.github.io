@@ -5,17 +5,16 @@ window.siteContent = {
   description: "",
   cvPdf: "assets/cv.pdf",
   portrait: {
-    src: "assets/portrait.jpg",
+    src: "assets/portrait2.jpg",
     alt: "Portrait of Daniel De Dios Allegue"
   },
   intro: [
-    "Hi, I'm Daniel 🌴! I am an incoming MPhil Advanced Computer Science at the University of Cambridge (Fitzwilliam College), where I will focus on generative modelling and AI4Science. "
+    "Hi, I'm Daniel 🌴! I am pursuing an MPhil in Advanced Computer Science at the University of Cambridge, where I focus on generative modelling and AI4Science supervised by <a href='https://www.cst.cam.ac.uk/people/pl219' target='_blank' rel='noreferrer'>Prof. Pietro Lió</a>. "
   ],
   focusIntro: [
     "I am currently a research assistant at the <a href='https://trl-lab.github.io/' target='_blank' rel='noreferrer'>Table Representation Learning Lab</a> at CWI in Amsterdam, where I work on scalable and efficient architectures for Tabular Foundation Models (TFMs) supervised by <a href='https://www.madelonhulsebos.com' target='_blank' rel='noreferrer'>Dr. Madelon Hulsebos</a>.",
-    "Previosly, I graduated <em>cum laude</em> with a BSc in Computer Science and a bridging programme to Applied Mathematics from Delft University of Technology. I worked on model-based reinforcement learning (MBRL), world models and kernel methods for attention mechanisms supervised by <a href='https://fransoliehoek.net/' target='_blank' rel='noreferrer'>Prof. Frans Oliehoek</a> and <a href='https://www.jinkehe.me' target='_blank' rel='noreferrer'>Dr. Jinke He</a>.",
+    "Previosly, I graduated <em>cum laude</em> with a BSc in Computer Science and a bridging programme to Applied Mathematics from Delft University of Technology. I worked on model-based reinforcement learning (MBRL), world models and kernel methods for attention mechanisms supervised by <a href='https://fransoliehoek.net/' target='_blank' rel='noreferrer'>Prof. Frans Oliehoek</a>.",
     "On the industry side, I have interned at Google <img src='assets/google-logo.jpg' alt='Google' style='height:1.1em;vertical-align:middle;margin:0 2px;border-radius:2px;'>on the <em>Video AI Mobile Team</em> for Google Meet where I worked on audio processing and Bluetooth integration, and at Lufthansa Group <img src='assets/lufthansa.png' alt='Lufthansa Group' style='height:1.1em;vertical-align:middle;margin:0 2px;border-radius:2px;'>, where I worked on Natural Language Processing (NLP) to process complex grant documents.",
-    "My current research interests include <strong>foundation models and representation learning for decision making</strong>. I am specially interested in generative modelling for structured data, <em>AI4Science</em> and protein design 🧬."
   ],
   // focusAreasIntro: "Some of my research interests and contributions:",
   // focusAreasOutro: "I am also broadly interested in <em>AI4Science</em>, protein design, and generative models for structured data.",
@@ -33,6 +32,35 @@ window.siteContent = {
   //     items: ["generative models for structured and tabular data", "diffusion and flow-based models"]
   //   }
   // ],
+  education: [
+    {
+      company: "University of Cambridge",
+      href: "https://example.com",
+      logo: { src: "assets/cambridge.png", alt: "University of Cambridge logo" },
+      role: "MPhil Advanced Computer Science (Fitzwilliam College)"
+      // period: "Month Year – Month Year",
+      // location: "Cambridge, United Kingdom",
+      // description: "Short description of your responsibilities and what you worked on."
+    },
+    {
+      company: "KTH Royal Institute of Technology",
+      href: "https://example.com",
+      logo: { src: "assets/kth.jpg", alt: "KTH logo", size: "80%" },
+      role: "Exchange Student in Applied Mathematics"
+      // period: "Month Year – Month Year",
+      // location: "City, Country",
+      // description: "Short description of your responsibilities and what you worked on."
+    },
+    {
+      company: "Delft University of Technology",
+      href: "https://example.com",
+      logo: { src: "assets/tudelft.png", alt: "Delft University of Technology logo" },
+      role: "BSc Computer Science + Applied Maths (Cum Laude)"
+      // period: "Month Year – Month Year",
+      // location: "City, Country",
+      // description: "Short description of your responsibilities and what you worked on."
+    }
+  ],
   experience: [
     {
       company: "Centrum Wiskunde & Informatica (CWI)",
@@ -53,43 +81,58 @@ window.siteContent = {
       description: "Video AI Mobile Team, Google Meet"
     },
     {
-      company: "KTH Royal Institute of Technology",
-      href: "https://example.com",
-      logo: { src: "assets/kth.jpg", alt: "KTH logo", size: "80%" },
-      role: "Exchange Student in Applied Mathematics",
-      // period: "Month Year – Month Year",
-      // location: "City, Country",
-      // description: "Short description of your responsibilities and what you worked on."
-    },
-    {
       company: "Lufthansa Group",
       href: "https://example.com",
       logo: { src: "assets/lufthansa.png", alt: "Lufthansa logo" },
       role: "Software Engineer Intern",
-      period: "Month Year – Month Year",
-      location: "City, Country",
-      description: "Short description of your responsibilities and what you worked on."
+      period: "April – July 2024",
+      location: "Delft, NL",
+      description: "AI for Grant Documents"
     },
     {
       company: "Team Epoch",
       href: "https://example.com",
       logo: { src: "assets/teamepoch_logo.jpg", alt: "Lufthansa logo" },
       role: "Research Engineer",
-      period: "Month Year – Month Year",
-      location: "City, Country",
-      description: "Short description of your responsibilities and what you worked on."
-    },
-    {
-      company: "Delft University of Technology",
-      href: "https://example.com",
-      logo: { src: "assets/tudelft.png", alt: "Delft University of Technology logo" },
-      role: "BSc Computer Science + Applied Maths (Cum Laude)",
-      // period: "Month Year – Month Year",
-      // location: "City, Country",
-      // description: "Short description of your responsibilities and what you worked on."
+      period: "Feb – July 2024",
+      location: "Delft, NL",
+      description: "Research in AI for Large-Scale Filesystems and Protein Binding Prediction"
     }
   ],
   work: [
+    {
+      title: "Tabular Selective Attention",
+      meta: "Publication",
+      image: {
+        src: "assets/tsa.png",
+        alt: "Diagram for Tabular Selective Attention"
+      },
+      authors: [
+        { name: "Rohith Prabakaran", marker: "*" },
+        { name: "Daniel De Dios Allegue", highlight: true, marker: "*" },
+        { name: "Nour Shaheen" },
+        { name: "David Holzmüller" },
+        { name: "Madelon Hulsebos" }
+      ],
+      note: "*Equal contribution",
+      venue: "Under Review",
+      year: "2026"
+    },
+    {
+      title: "Scaling Transformer Based World Models with Learnable Structural Kernels",
+      meta: "Publication",
+      image: {
+        src: "assets/scaling.png",
+        alt: "Diagram for Scaling Transformer Based World Models with Learnable Structural Kernels"
+      },
+      authors: [
+        { name: "Daniel De Dios Allegue", highlight: true },
+        { name: "Jinke He" },
+        { name: "Frans A. Oliehoek" }
+      ],
+      venue: "Under Review",
+      year: "2026"
+    },
     {
       title: "Learning to Focus: Prioritizing Informative Histories with Structured Attention Mechanisms in Partially Observable Reinforcement Learning",
       meta: "Publication",
@@ -114,10 +157,16 @@ window.siteContent = {
       ]
     }
   ],
+  contactEmails: ["danieldediosallegue@gmail.com", "dd710@cam.ac.uk"],
   links: [
-    { label: "email", href: "mailto:danieldediosallegue@gmail.com", icon: "fas fa-envelope" },
     { label: "GitHub", href: "https://github.com/daniallegue", icon: "fab fa-github" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/danielallegue", icon: "fab fa-linkedin" },
     { label: "Google Scholar", href: "https://scholar.google.com/citations?user=Y5EUuXwAAAAJ&hl=es&oi=sra", icon: "ai ai-google-scholar" }
+  ],
+  awards: [
+    {
+      title: "Fundación Telefónica Scholarship",
+      description: "Awarded a merit-based scholarship worth €80,000 by Fundación Telefónica, granted to a small group of outstanding Spanish students to support their graduate studies abroad at top-ranked universities."
+    }
   ]
 };
