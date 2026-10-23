@@ -217,7 +217,8 @@ blockquote p {
 }
 
 .contact-block {
-  margin-top: 0.9rem;
+  clear: both;
+  margin-top: 1.75rem;
   padding-left: 0.75rem;
   border-left: 2px solid var(--global-divider-color);
 }
