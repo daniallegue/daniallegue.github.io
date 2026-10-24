@@ -217,7 +217,6 @@ blockquote p {
 }
 
 .contact-block {
-  clear: both;
   margin-top: 1.75rem;
   padding-left: 0.75rem;
   border-left: 2px solid var(--global-divider-color);
@@ -254,10 +253,6 @@ blockquote p {
 .cv-download-link:hover {
   color: var(--global-hover-color);
   text-decoration: underline;
-}
-
-#focus-areas-section {
-  clear: both;
 }
 
 html {
